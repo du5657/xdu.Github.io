@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我的小仙女</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .heart {
+            position: absolute;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            width: 80%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+        }
+        
+        h1 {
+            color: #ff6b88;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .contact-info {
+            margin: 25px 0;
+        }
+        
+        .phone {
+            font-size: 24px;
+            color: #333;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .phone i {
+            margin-right: 10px;
+            color: #ff6b88;
+        }
+        
+        .message {
+            font-style: italic;
+            color: #666;
+            margin-top: 30px;
+            line-height: 1.6;
+        }
+        
+        .signature {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #ff6b88;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>临时停车，请多关照</h1>
+        <div class="contact-info">
+            <div class="phone">
+                <i>📱</i> 18631925021
+            </div>
+            <div class="phone">
+                <i>📱</i> 备用：15931989237
+            </div>
+        </div>
+        <p class="message">
+            如果我的车挡住了您的路，<br>
+            请拨打上面的电话联系我，<br>
+            我会立即赶来处理~ 
+        </p>
+        <div class="signature">—— 有事请联系我</div>
+    </div>
+
+    <script>
+        function createHearts() {
+            const colors = ['#ff6b88', '#ff8e9e', '#ffb3c1', '#ffd8e1'];
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.className = 'heart';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.opacity = Math.random() * 0.5 + 0.3;
+                heart.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                heart.style.animationDelay = (Math.random() * 5) + 's';
+                document.body.appendChild(heart);
+            }
+        }
+        
+        window.onload = createHearts;
+    </script>
+</body>
+</html>
